@@ -113,7 +113,7 @@ updateCategory(category:any): void {
  this.categoryRef.get("categoryImageUrl")?.setValue(category.categoryImageUrl);
   
  this.buttonName="Update Category";
-
+  
 }
 
 }
