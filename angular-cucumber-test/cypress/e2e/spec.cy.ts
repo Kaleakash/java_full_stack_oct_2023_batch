@@ -1,3 +1,4 @@
+import {Given} from 'cypress-cucumber-preprocessor/steps';
 describe('My First Test', () => {
   it('Visits the initial project page', () => {
     cy.visit('/')   // base URL : http://localhost:4200 
@@ -8,3 +9,8 @@ describe('My First Test', () => {
     //ref1.should("")
   })
 })
+
+
+// Given("Visit the Page",()=> {
+//   cy.visit("/");
+// })
