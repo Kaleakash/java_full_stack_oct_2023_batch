@@ -1,0 +1,17 @@
+<div>
+    <h2>Employee details</h2>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Gender</th>
+        </tr>
+        <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name | GenderPipe:employee.gender}}</td>
+                <td>{{employee.salary | currency:'&#x20B9;'}}</td>
+                <td>{{employee.gender}}</td>
+        </tr>
+    </table>
+</div>

@@ -22,7 +22,7 @@
         </tr>
         <tr *ngFor="let category of category">
                 <td>{{category.id}}</td>
-                <td>{{category.categoryName}}</td>
+                <td>{{category.categoryName | uppercase}}</td>
                 <td>{{category.categoryDescription}}</td>
                 <td><img src={{category.categoryImageUrl}}
                     width="100px" height="100px"/></td>
