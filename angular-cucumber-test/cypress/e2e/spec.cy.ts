@@ -6,7 +6,15 @@ describe('My First Test', () => {
     cy.contains("E2E testing")
     let ref1 = cy.get("#abc");
     ref1.should("have.text","Today we are learning angular testing");
-    //ref1.should("")
+    cy.wait(4000);
+    let cname = cy.get("#cname");
+    cname.type("Akash");
+    cy.wait(4000);
+    let cemail = cy.get("#cemail");
+    cemail.type("akash@gmail.com");
+    cy.wait(4000);
+    let button = cy.get("#b1");
+    button.click();
   })
 })
 
