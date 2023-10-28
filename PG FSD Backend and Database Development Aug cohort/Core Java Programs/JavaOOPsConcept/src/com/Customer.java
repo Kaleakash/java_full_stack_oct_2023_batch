@@ -1,5 +1,5 @@
 package com;
-
+// map json data and link with  database table.  
 public class Customer {
 private int cid;
 private String cname;
@@ -20,12 +20,18 @@ public int getAge() {
 	return age;
 }
 public void setAge(int age) {
-	if(age<0) {
-		this.age  =19;
-	}else {
-		this.age = age;
-	}
-	
+	this.age = age;
 }
+public Customer() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Customer(int cid, String cname, int age) {
+	super();
+	this.cid = cid;
+	this.cname = cname;
+	this.age = age;
+}
+
 
 }

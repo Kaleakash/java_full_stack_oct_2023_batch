@@ -16,9 +16,15 @@ public class DemoTest {
 		c1.setCname("Ramesh");
 		c1.setAge(-21);
 		
+		Customer c2 = new Customer(101, "Raju", 26);
+		
 		System.out.println("id is "+c1.getCid());
 		System.out.println("name is "+c1.getCname());
 		System.out.println("age is "+c1.getAge());
+		
+		System.out.println("id is "+c2.getCid());
+		System.out.println("name is "+c2.getCname());
+		System.out.println("age is "+c2.getAge());
 	}
 
 }
