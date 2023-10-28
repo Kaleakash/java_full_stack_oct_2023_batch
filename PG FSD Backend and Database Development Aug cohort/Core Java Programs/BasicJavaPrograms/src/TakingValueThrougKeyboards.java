@@ -21,7 +21,7 @@ public class TakingValueThrougKeyboards {
 		System.out.println("Enter the salary");
 		float salary = obj.nextFloat();		// float salary
 		System.out.println("Enter the result");
-		boolean result = obj.nextBoolean();
+			boolean result = obj.nextBoolean();
 		System.out.println("Employee details ");
 		System.out.println("Id is "+id);
 		System.out.println("name is "+name);
