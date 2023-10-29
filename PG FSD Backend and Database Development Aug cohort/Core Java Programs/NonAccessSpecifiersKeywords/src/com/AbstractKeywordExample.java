@@ -4,6 +4,9 @@ abstract class Bike {
 	void mailage() {
 		System.out.println("40km/lt");
 	}
+	Bike() {
+		
+	}
 }
 class Pulsar extends Bike {
 	void color() {
