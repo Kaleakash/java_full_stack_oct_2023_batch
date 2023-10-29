@@ -1,4 +1,5 @@
 package main;
+import bean.Employee;
 import college.Attendance;
 //import school.Attendance;
 public class DemoTest {
@@ -9,6 +10,8 @@ public class DemoTest {
 		att1.display();
 		school.Attendance att2 = new school.Attendance();
 		att2.display();
+		Employee emp = new Employee();
+		emp.disEmp();
 	}
 
 }
