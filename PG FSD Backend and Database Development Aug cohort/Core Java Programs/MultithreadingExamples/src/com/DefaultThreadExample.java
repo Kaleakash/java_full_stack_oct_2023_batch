@@ -16,6 +16,7 @@ public class DefaultThreadExample {
 	System.out.println("name "+name);
 	System.out.println("priority "+i);
 	System.out.println("group name "+tg.getName());
+	
 	}
 
 }
