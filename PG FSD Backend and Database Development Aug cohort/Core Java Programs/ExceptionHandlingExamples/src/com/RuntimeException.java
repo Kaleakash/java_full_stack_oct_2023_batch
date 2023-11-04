@@ -10,7 +10,7 @@ public class RuntimeException {
 		try {
 			int res = a/b;
 		System.out.println("Result is "+res);
-		int res1 = 100/abc[5];
+			int res1 = 100/abc[0];
 		System.out.println("Result is "+res1);
 		}catch(Exception e) {
 			//System.out.println("I Take Care!");		// custom message 
