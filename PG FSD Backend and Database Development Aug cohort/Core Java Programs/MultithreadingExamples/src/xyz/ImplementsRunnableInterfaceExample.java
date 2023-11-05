@@ -26,6 +26,7 @@ public class ImplementsRunnableInterfaceExample {
 	Thread t2 = new Thread(obj2); 
 	t1.start();
 	t2.start();
+	//t1.start();
 	}
 
 }
