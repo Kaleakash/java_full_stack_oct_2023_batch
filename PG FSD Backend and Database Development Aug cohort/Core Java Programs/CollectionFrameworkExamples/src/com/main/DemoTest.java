@@ -10,7 +10,7 @@ public class DemoTest {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("How many records do you want to store");
 		int n = sc.nextInt();
-		Employee employee[]=new Employee[n];
+		Employee employee[]=new Employee[n];//3
 		System.out.println("Enter the records one by one");
 		for(int i=0;i<n;i++) {
 			employee[i]=new Employee();
