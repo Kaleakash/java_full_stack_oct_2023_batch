@@ -12,9 +12,13 @@ class Resource implements Runnable {
 		if(i==5 && name.equals("Ravi")) {
 			wait();
 		}
-		if(i==7 && name.equals("Steven")) {
-			notify();
+		if(i==7 && name.equals("Ajay")) {
+			//notify();
 			wait();
+		}
+		if(i==7 && name.equals("Steven")) {
+			notifyAll();
+			//wait();
 		}
 		}catch(Exception e) {}
 	}
