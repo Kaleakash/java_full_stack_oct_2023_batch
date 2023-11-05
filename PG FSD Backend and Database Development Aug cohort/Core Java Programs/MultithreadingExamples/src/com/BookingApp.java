@@ -11,19 +11,6 @@ class Booking implements Runnable {
 		}else {
 			System.out.println(name+" sorry no ticket");
 		}
-//		synchronized (this) {
-//			System.out.println("hello");
-//		}
-//		System.out.println("Hi");
-//		
-//		synchronized (this) {
-//			
-//		}
-//		
-//		
-//		synchronized (this) {
-//			
-//		}
 	}
 }
 public class BookingApp {
