@@ -16,6 +16,7 @@ public class SetDemo {
 	//Set ss = new LinkedHashSet();
 		Set ss = new TreeSet();
 	ss.add(4);
+	
 	ss.add(2);
 	ss.add(1);
 	ss.add(6);
