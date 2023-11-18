@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+import java.util.Vector;
 
 public class ListDemo {
 
@@ -41,27 +42,32 @@ public class ListDemo {
 //		System.out.println(ll);
 		
 		//List ll = new LinkedList();
-		LinkedList ll = new LinkedList();
-		ll.add(2);
-		ll.add(10);
-		ll.add(5);
-		ll.add(9);
-		System.out.println(ll);
-		System.out.println("Get value using index position "+ll.get(0));
-		System.out.println("Get value using index position "+ll.get(1));
-			ll.add(1, 100);		// index, value 
-		System.out.println("After added...");
-		System.out.println("Get value using index position "+ll.get(1));
-		System.out.println("Get value using index position "+ll.get(2));
-		ll.remove(2);	// remvove using index 
-		Integer obj = 2;
-		ll.remove(obj); // remove base upon value
-		System.out.println("After remove");
-		System.out.println(ll);
-		System.out.println("First "+ll.getFirst());
-		System.out.println("First "+ll.getLast());
-		ll.removeLast();		// ll.remove(ll.size()-1);
-		System.out.println(ll);
+//		LinkedList ll = new LinkedList();
+//		ll.add(2);
+//		ll.add(10);
+//		ll.add(5);
+//		ll.add(9);
+//		System.out.println(ll);
+//		System.out.println("Get value using index position "+ll.get(0));
+//		System.out.println("Get value using index position "+ll.get(1));
+//			ll.add(1, 100);		// index, value 
+//		System.out.println("After added...");
+//		System.out.println("Get value using index position "+ll.get(1));
+//		System.out.println("Get value using index position "+ll.get(2));
+//		ll.remove(2);	// remvove using index 
+//		Integer obj = 2;
+//		ll.remove(obj); // remove base upon value
+//		System.out.println("After remove");
+//		System.out.println(ll);
+//		System.out.println("First "+ll.getFirst());
+//		System.out.println("First "+ll.getLast());
+//		ll.removeLast();		// ll.remove(ll.size()-1);
+//		System.out.println(ll);
+		
+		Vector vv = new Vector();
+		vv.add(10);
+		vv.add(20);
+		System.out.println(vv);
 		
 	}
 
