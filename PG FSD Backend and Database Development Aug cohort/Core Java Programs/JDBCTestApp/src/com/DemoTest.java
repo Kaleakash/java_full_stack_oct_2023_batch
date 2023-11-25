@@ -36,13 +36,18 @@ System.out.println("connected successfully");
 //			}
 	
 			// 	update query 
-				int result = stmt.executeUpdate("update product set price = 79000 where pid=6");
-				if(result>0) {
-					System.out.println("Record updated successfully");
-				}else {
-					System.out.println("Record not present");
-				}
-			
+//				int result = stmt.executeUpdate("update product set price = 79000 where pid=6");
+//				if(result>0) {
+//					System.out.println("Record updated successfully");
+//				}else {
+//					System.out.println("Record not present");
+//				}
+	// Retrieve query 
+		ResultSet rs = stmt.executeQuery("select * from product");
+		while(rs.next()) {
+		//System.out.println("PID "+rs.getInt(1)+"PName "+rs.getString(2)+"Price is "+rs.getFloat(3));
+			System.out.println("PID "+rs.getInt("pid")+"PName "+rs.getString("pname")+"Price is "+rs.getFloat("price"));
+		}	
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
