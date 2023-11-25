@@ -51,20 +51,35 @@ System.out.println("connected successfully");
 //		}
 		Scanner sc = new Scanner(System.in);
 		// Creating reference of PreparedStatement 
-		PreparedStatement pstmt= con.prepareStatement("insert into product values(?,?,?)");
-		System.out.println("Enter the product id");
-		int pid = sc.nextInt();
-		pstmt.setInt(1, pid);
-		System.out.println("Enter the product name");
-		String pname = sc.next();
-		pstmt.setString(2, pname);
-		System.out.println("Enter the price");
-		float price = sc.nextFloat();
-		pstmt.setFloat(3, price);
-		int result = pstmt.executeUpdate();
-		if(result>0) {
-			System.out.println("Record inserted successfully");
-		}
+//		// Insert Query using PreparedStatement 
+//		PreparedStatement pstmt= con.prepareStatement("insert into product values(?,?,?)");
+//		System.out.println("Enter the product id");
+//		int pid = sc.nextInt();
+//		pstmt.setInt(1, pid);
+//		System.out.println("Enter the product name");
+//		String pname = sc.next();
+//		pstmt.setString(2, pname);
+//		System.out.println("Enter the price");
+//		float price = sc.nextFloat();
+//		pstmt.setFloat(3, price);
+//		int result = pstmt.executeUpdate();
+//		if(result>0) {
+//			System.out.println("Record inserted successfully");
+//		}
+		
+		// Delete Query using PreparedStatement 
+				PreparedStatement pstmt= con.prepareStatement("delete from product where pid=?");
+				System.out.println("Enter the product id");
+				int pid = sc.nextInt();
+				pstmt.setInt(1, pid);
+
+				int result = pstmt.executeUpdate();
+				if(result>0) {
+					System.out.println("Record deleted successfully");
+				}else {
+					System.out.println("Record not present");
+				}
+				
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
