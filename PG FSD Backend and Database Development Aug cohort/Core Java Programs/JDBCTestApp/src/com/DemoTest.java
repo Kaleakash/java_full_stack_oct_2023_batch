@@ -1,5 +1,12 @@
 package com;
 import java.sql.*;
+
+/*
+ * 
+ * ALTER USER 'root'@'localhost'
+IDENTIFIED WITH mysql_native_password BY 'your_new_password';
+FLUSH PRIVILEGES;
+ */
 public class DemoTest {
 
 	public static void main(String[] args) {
