@@ -67,19 +67,43 @@ System.out.println("connected successfully");
 //			System.out.println("Record inserted successfully");
 //		}
 		
-		// Delete Query using PreparedStatement 
-				PreparedStatement pstmt= con.prepareStatement("delete from product where pid=?");
-				System.out.println("Enter the product id");
-				int pid = sc.nextInt();
-				pstmt.setInt(1, pid);
-
-				int result = pstmt.executeUpdate();
-				if(result>0) {
-					System.out.println("Record deleted successfully");
-				}else {
-					System.out.println("Record not present");
-				}
-				
+//		// Delete Query using PreparedStatement 
+//				PreparedStatement pstmt= con.prepareStatement("delete from product where pid=?");
+//				System.out.println("Enter the product id");
+//				int pid = sc.nextInt();
+//				pstmt.setInt(1, pid);
+//
+//				int result = pstmt.executeUpdate();
+//				if(result>0) {
+//					System.out.println("Record deleted successfully");
+//				}else {
+//					System.out.println("Record not present");
+//				}
+		// Update Query using PreparedStatement 
+//		PreparedStatement pstmt= con.prepareStatement("update product set price = ? where pid=?");
+//		System.out.println("Enter the product id");
+//		int pid = sc.nextInt();
+//		pstmt.setInt(2, pid);
+//
+//		System.out.println("Enter the product price");
+//		float price = sc.nextFloat();
+//		pstmt.setFloat(1, price);
+//		
+//		int result = pstmt.executeUpdate();
+//		if(result>0) {
+//			System.out.println("Record updated successfully");
+//		}else {
+//			System.out.println("Record not present");
+//		}		
+		// Retrieve with PreparedStatement 
+		PreparedStatement pstmt = con.prepareStatement("select * from product where price > ?");
+		System.out.println("Enter price");
+		float price = sc.nextFloat();
+		pstmt.setFloat(1, price);
+		ResultSet rs = pstmt.executeQuery();
+		while(rs.next()) {
+			System.out.println("PID "+rs.getInt("pid")+"PName "+rs.getString("pname")+"Price is "+rs.getFloat("price"));			
+		}
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
