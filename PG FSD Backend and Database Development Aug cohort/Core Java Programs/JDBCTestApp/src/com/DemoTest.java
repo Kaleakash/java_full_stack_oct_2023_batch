@@ -21,12 +21,28 @@ Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/my_db_
 System.out.println("connected successfully");
 	Statement stmt = con.createStatement();
 	System.out.println("Statement created");
-		// insert query 
+//		// insert query 
+//		int result = stmt.executeUpdate("insert into product values(3,'Laptop',89000)");
+//		if(result>0) {
+//			System.out.println("Record inserted successfully");
+//		}
+		
+//		// delete query 
+//			int result = stmt.executeUpdate("delete from product where pid =3");
+//			if(result>0) {
+//				System.out.println("Record deleted successfully");
+//			}else {
+//				System.out.println("Record not present");
+//			}
 	
-		int result = stmt.executeUpdate("insert into product values(3,'Laptop',89000)");
-		if(result>0) {
-			System.out.println("Record inserted successfully");
-		}
+			// 	update query 
+				int result = stmt.executeUpdate("update product set price = 79000 where pid=6");
+				if(result>0) {
+					System.out.println("Record updated successfully");
+				}else {
+					System.out.println("Record not present");
+				}
+			
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
