@@ -1,5 +1,6 @@
 package com;
 import java.sql.*;
+import java.util.Scanner;
 
 /*
  * 
@@ -43,11 +44,27 @@ System.out.println("connected successfully");
 //					System.out.println("Record not present");
 //				}
 	// Retrieve query 
-		ResultSet rs = stmt.executeQuery("select * from product");
-		while(rs.next()) {
-		//System.out.println("PID "+rs.getInt(1)+"PName "+rs.getString(2)+"Price is "+rs.getFloat(3));
-			System.out.println("PID "+rs.getInt("pid")+"PName "+rs.getString("pname")+"Price is "+rs.getFloat("price"));
-		}	
+	//	ResultSet rs = stmt.executeQuery("select * from product");
+//		while(rs.next()) {
+//		//System.out.println("PID "+rs.getInt(1)+"PName "+rs.getString(2)+"Price is "+rs.getFloat(3));
+//			System.out.println("PID "+rs.getInt("pid")+"PName "+rs.getString("pname")+"Price is "+rs.getFloat("price"));
+//		}
+		Scanner sc = new Scanner(System.in);
+		// Creating reference of PreparedStatement 
+		PreparedStatement pstmt= con.prepareStatement("insert into product values(?,?,?)");
+		System.out.println("Enter the product id");
+		int pid = sc.nextInt();
+		pstmt.setInt(1, pid);
+		System.out.println("Enter the product name");
+		String pname = sc.next();
+		pstmt.setString(2, pname);
+		System.out.println("Enter the price");
+		float price = sc.nextFloat();
+		pstmt.setFloat(3, price);
+		int result = pstmt.executeUpdate();
+		if(result>0) {
+			System.out.println("Record inserted successfully");
+		}
 		} catch (Exception e) {
 			System.out.println(e.toString());
 		}
