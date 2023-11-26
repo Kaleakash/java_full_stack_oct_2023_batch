@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.pms.bean.Product;
+import com.pms.resource.DbResource;
 import com.pms.service.ProductService;
 
 public class App {
@@ -68,6 +69,7 @@ public class App {
 	con = sc.next();
 	} while (con.equals("y"));
 	System.out.println("Thank you!");
+	DbResource.close();
 	}
 
 }
