@@ -70,6 +70,7 @@ public class App {
 	} while (con.equals("y"));
 	System.out.println("Thank you!");
 	DbResource.close();
+	sc.close();
 	}
 
 }
