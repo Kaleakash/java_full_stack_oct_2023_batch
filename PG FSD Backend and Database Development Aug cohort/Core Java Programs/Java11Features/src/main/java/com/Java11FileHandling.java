@@ -14,8 +14,10 @@ public class Java11FileHandling {
 //		System.out.println("File created...");
 		// Read the files 
 		//Path myFilePath		=  Paths.get("abc.txt");
+		
 		Path myFilePath		=  Paths.get("C:\\Users\\akash\\Desktop\\JavaProgram\\Demo.java");
 		String data = Files.readString(myFilePath);
+		
 		System.out.println(data);
 	}
 
