@@ -25,7 +25,7 @@ public class StringDemo {
 	System.out.println(name7.strip().length());
 	System.out.println(name7.stripLeading().length());
 	String msg = "Welcome to java";
-	msg.lines().forEach(e->System.out.println(e));
+	msg.lines(). forEach(e->System.out.println(e));
 	}
 
 }
