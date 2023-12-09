@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +13,10 @@
 	pass = request.getParameter("pass");
 	//RequestDispatcher rd1 = request.getRequestDispatcher("Home.jsp");
 	//RequestDispatcher rd2 = request.getRequestDispatcher("login.jsp");
+	
+	// We can write JDBC code. we need to convert maven and write jdbc code. 
+	Class.forName("");
+	Connection con = DriverManager.getConnection("", "", "");
 	
 	if(email.equals("akash@gmail.com") && pass.equals("akash@123")){
 		out.println("sucessfully login");
