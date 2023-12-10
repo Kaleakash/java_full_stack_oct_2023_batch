@@ -55,7 +55,7 @@ public class EmployeeController extends HttpServlet {
 		
 		// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
 		
-		//pw.println("result");
+		pw.println("result");
 		response.setContentType("text/html");
 		RequestDispatcher rd = request.getRequestDispatcher("addEmployee.jsp");
 		rd.include(request, response);
