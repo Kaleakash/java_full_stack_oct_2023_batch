@@ -7,16 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h4>Store Employee</h4>
+<h4>Delete Employee Information</h4>
 <form action="EmployeeController" method="post">
-		<input type="hidden" name="operation" value="store">
+	<input type="hidden" name="operation" value="delete">
 	<label>Id</label>
 	<input type="number" name="id"/><br/>
-	<label>Name</label>
-	<input type="text" name="name"/><br/>
-	<label>Salary</label>
-	<input type="number" name="salary"/><br/>
-	<input type="submit" value="store employee"/>
+	<input type="submit" value="delete employee"/>
 	<input type="reset" value="reset"/>
 </form>
 <br/>

@@ -44,32 +44,80 @@ public class EmployeeController extends HttpServlet {
 	}
 
 	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
 		// receive the value from form and convert to respective data type. 
 		
-		int id = Integer.parseInt(request.getParameter("id"));
-		String name = request.getParameter("name");
-		float salary = Float.parseFloat(request.getParameter("salary"));
-		
-		// convert those value to java bean class 
-		Employee emp = new Employee();
-		emp.setId(id);
-		emp.setName(name);
-		emp.setSalary(salary);
-		
-		
-		// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
-		EmployeeService es = new EmployeeService();
-		String result = es.storeEmployee(emp);
-		pw.println(result);
+		String operation = request.getParameter("operation");
+		if(operation.equals("store")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			String name = request.getParameter("name");
+			float salary = Float.parseFloat(request.getParameter("salary"));
+			
+			// convert those value to java bean class 
+			Employee emp = new Employee();
+			emp.setId(id);
+			emp.setName(name);
+			emp.setSalary(salary);
+			
+			
+			// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
+			EmployeeService es = new EmployeeService();
+			String result = es.storeEmployee(emp);
+			pw.println(result);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("addEmployee.jsp");
+			rd.include(request, response);
+		}else if(operation.equals("update")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			
+			float salary = Float.parseFloat(request.getParameter("salary"));
+			Employee emp = new Employee();
+			emp.setId(id);
+			
+			emp.setSalary(salary);
+			
+			// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
+			EmployeeService es = new EmployeeService();
+			String result = es.updateEmployee(emp);
+			pw.println(result);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("updateEmployee.jsp");
+			rd.include(request, response);
+			
+			
+		}else if(operation.equals("delete")) {
+			int id = Integer.parseInt(request.getParameter("id"));
+			
+			// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
+			EmployeeService es = new EmployeeService();
+			String result = es.deleteEmployee(id);
+			pw.println(result);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("deleteEmployee.jsp");
+			rd.include(request, response);
+			
+		}else {
+			pw.println("Wrong operation");
+			RequestDispatcher rd = request.getRequestDispatcher("index.html");
+			rd.include(request, response);
+		}
 		response.setContentType("text/html");
-		RequestDispatcher rd = request.getRequestDispatcher("addEmployee.jsp");
-		rd.include(request, response);
 		
 		
 	}
 
+//	@Override
+//	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//	
+//	}
+//	
+//	@Override
+//	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//	
+//	}
 }
+
 
 
