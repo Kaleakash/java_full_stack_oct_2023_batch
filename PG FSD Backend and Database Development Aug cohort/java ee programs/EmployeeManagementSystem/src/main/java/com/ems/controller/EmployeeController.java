@@ -2,6 +2,7 @@ package com.ems.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.ems.bean.Employee;
 import com.ems.service.EmployeeService;
@@ -28,17 +30,20 @@ public class EmployeeController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//PrintWriter pw = response.getWriter();
+		EmployeeService es = new EmployeeService();
+		List<Employee> listOfEmp = es.findAllEmployee();
+//		pw.println("<table>");
+//		
+//		pw.println("</table>");
+		HttpSession hs = request.getSession();
+		hs.setAttribute("obj", listOfEmp);
+		response.sendRedirect("displayEmployee.jsp");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pw = response.getWriter();
 		// receive the value from form and convert to respective data type. 

@@ -1,5 +1,7 @@
 package com.ems.service;
 
+import java.util.List;
+
 import com.ems.bean.Employee;
 import com.ems.dao.EmployeeDao;
 
@@ -15,4 +17,25 @@ public class EmployeeService {
 			return "Employee record didn't store";
 		}
 	}
+	
+	public String updateEmployee(Employee emp) {
+		if(ed.updateEmployee(emp)>0) {
+			return "Employee Salary updated successfully";
+		}else {
+			return "Employee salary didn't update";
+		}
+	}
+	
+	public String deleteEmployee(int id) {
+		if(ed.deleteEmployee(id)>0) {
+			return "Employee record successfully";
+		}else {
+			return "Employee record didn't delete";
+		}
+	}
+	
+	public List<Employee> findAllEmployee() {
+		return ed.findAllEmployees();
+	}
+	
 }
