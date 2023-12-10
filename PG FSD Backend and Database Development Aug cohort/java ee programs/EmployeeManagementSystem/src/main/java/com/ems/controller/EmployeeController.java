@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ems.bean.Employee;
+import com.ems.service.EmployeeService;
 
 /**
  * Servlet implementation class EmployeeController
@@ -54,8 +55,9 @@ public class EmployeeController extends HttpServlet {
 		
 		
 		// Then we can pass those value to service layer and base upon service layer result we can move to next view page. 
-		
-		pw.println("result");
+		EmployeeService es = new EmployeeService();
+		String result = es.storeEmployee(emp);
+		pw.println(result);
 		response.setContentType("text/html");
 		RequestDispatcher rd = request.getRequestDispatcher("addEmployee.jsp");
 		rd.include(request, response);

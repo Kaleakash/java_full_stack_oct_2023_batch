@@ -9,7 +9,7 @@ public class DbResource {
 	static {
 		try {
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	con = DriverManager.getConnection("jdbc:mysql://locahost:3306/my_db_info", "root", "root@123");
+	con = DriverManager.getConnection("jdbc:mysql://localhost:3306/my_db_info", "root", "root@123");
 		} catch (Exception e) {
 			System.err.println("Db Connection error "+e);
 		}
