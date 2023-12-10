@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -33,12 +34,15 @@ public class LoginServlet extends HttpServlet {
 		pw.println("In Servlet Page");
 		String name = request.getParameter("name");
 	pw.println("name is "+name);
-	request.setAttribute("obj", name);
+	//request.setAttribute("obj", name);
+		HttpSession hs = request.getSession();
+		hs.setAttribute("obj", name);
 		RequestDispatcher rd = request.getRequestDispatcher("Home.jsp");
-		//rd.include(request, response);
-		
-		response.setContentType("text/html");
-		rd.forward(request, response);		
+		//rd.include(request, response);		//source + target page 
+		//rd.forward(request, response);			// only target page 
+		response.sendRedirect("Home.jsp");         // only target page 
+		//response.setContentType("text/html");
+		//rd.forward(request, response);		
 	}
 
 	/**
