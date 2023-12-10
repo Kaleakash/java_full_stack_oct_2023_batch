@@ -8,7 +8,7 @@
 </head>
 <body>
 <h4>Store Employee</h4>
-<form>
+<form action="EmployeeController" method="post">
 	<label>Id</label>
 	<input type="number" name="id"/><br/>
 	<label>Name</label>
