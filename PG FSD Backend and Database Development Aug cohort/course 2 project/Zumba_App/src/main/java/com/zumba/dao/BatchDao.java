@@ -46,4 +46,24 @@ public class BatchDao {
 		return listOfBatch;
 	}
 	
+	
+	public List<Object[]> findBatchAndStudentInfo() {
+		List<Object[]> listOfBatch = new ArrayList<>();
+			try {
+			Connection con = DbResource.getDbConnection();
+	PreparedStatement pstmt = con.prepareStatement("select b.typeofbatch,b.time,p.sname, p.age from batch b, participants p where b.batchid = p.batchid");
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Object obj[]=new Object[4];
+				obj[0]=rs.getString(1);
+				obj[1]=rs.getString(2);
+				obj[2]=rs.getString(3);
+				obj[3]=rs.getInt(4);
+				listOfBatch.add(obj);
+			}
+			} catch (Exception e) {
+				System.err.println("Batch retrieve error "+e.toString());
+			}
+			return listOfBatch;
+		}
 }

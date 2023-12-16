@@ -19,4 +19,8 @@ public class BatchService {
 	public List<Batch> findAllBatch(){
 		return db.findAllBatchInfo();
 	}
+	
+	public List<Object[]> findBatchAndStudentInfo() {
+		return db.findBatchAndStudentInfo();
+	}
 }

@@ -12,6 +12,7 @@
 <body>
 <h2>Add Participants Details</h2>
 <form action="ParticipantsController" method="post">
+<input type="hidden" name="operation" value="add"><br/>
 <label>Participant Name</label>
 <input type="text" name="pname"><br/>
 <label>Age</label>
