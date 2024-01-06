@@ -15,6 +15,15 @@ public class DemoTest {
 	BeanFactory obj = new XmlBeanFactory(res);    // it use to get the reference of bean factory 
 	Employee e1 = (Employee)obj.getBean("emp1");   // pull the object. 
 	e1.display();
+	Employee e2 = (Employee)obj.getBean("emp1");   // pull the object. 
+	e2.display();
+	
+//	Employee e3 = (Employee)obj.getBean("emp2");   // pull the object. 
+//	e3.display();
+//	
+//	Employee e4 = (Employee)obj.getBean("emp2");   // pull the object. 
+//	e4.display();
+	
 	}
 
 }
