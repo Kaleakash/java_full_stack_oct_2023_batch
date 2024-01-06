@@ -4,7 +4,7 @@ public class Employee {
 private int id;
 private String name;
 private float salary;
-	
+private Address address;		// Employee has a address reference ie has relationship. 	
 	public Employee() {
 		System.out.println("object created...using empty");
 	}
@@ -14,6 +14,14 @@ private float salary;
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	public int getId() {
@@ -46,7 +54,7 @@ private float salary;
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", address=" + address + "]";
 	}
 	
 	
