@@ -15,6 +15,14 @@ private Address address;		// Employee has a address reference ie has relationshi
 		this.name = name;
 		this.salary = salary;
 	}
+	
+	public Employee(int id, String name, float salary, Address address) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+		this.address = address;
+	}
 
 	public Address getAddress() {
 		return address;

@@ -40,7 +40,9 @@ public class DemoTest {
 	
 	Employee employee1  = (Employee)obj.getBean("employee");
 	System.out.println(employee1);
-	
+	employee1.setId(1111);
+	employee1.setName("Lokesh");
+	System.out.println(employee1);
 	}
 
 }
