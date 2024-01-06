@@ -16,6 +16,13 @@
 	
 </bean>
 
+<bean class="com.Employee" id="emp33">
+	<constructor-arg value="107"></constructor-arg>
+	<constructor-arg value="Ajay"></constructor-arg>
+	<constructor-arg value="18000"></constructor-arg>
+	<constructor-arg ref="add"></constructor-arg>
+</bean>
+
 <bean class="com.Employee" id="emp4">
 	<property name="id" value="101"></property>
 
