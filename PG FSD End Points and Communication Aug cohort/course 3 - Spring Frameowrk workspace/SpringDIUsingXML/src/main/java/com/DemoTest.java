@@ -13,16 +13,24 @@ public class DemoTest {
 
 	Resource res = new ClassPathResource("beans.xml");	// file loaded...
 	BeanFactory obj = new XmlBeanFactory(res);    // it use to get the reference of bean factory 
-	Employee e1 = (Employee)obj.getBean("emp1");   // pull the object. 
-	e1.display();
-	Employee e2 = (Employee)obj.getBean("emp1");   // pull the object. 
-	e2.display();
-	
+//	Employee e1 = (Employee)obj.getBean("emp1");   // pull the object. 
+//	e1.display();
+//	Employee e2 = (Employee)obj.getBean("emp1");   // pull the object. 
+//	e2.display();
+//	
 //	Employee e3 = (Employee)obj.getBean("emp2");   // pull the object. 
 //	e3.display();
 //	
 //	Employee e4 = (Employee)obj.getBean("emp2");   // pull the object. 
 //	e4.display();
+	
+	
+	Employee e5 = (Employee)obj.getBean("emp2");   // pull the object. 
+	System.out.println(e5);     // it will call toString method 
+	
+	Employee e6 = (Employee)obj.getBean("emp3");   // pull the object. 
+	System.out.println(e6); 
+	
 	
 	}
 
