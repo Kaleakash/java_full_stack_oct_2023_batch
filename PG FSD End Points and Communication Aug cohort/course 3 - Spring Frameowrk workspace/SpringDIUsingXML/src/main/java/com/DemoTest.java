@@ -31,6 +31,8 @@ public class DemoTest {
 	Employee e6 = (Employee)obj.getBean("emp3");   // pull the object. 
 	System.out.println(e6); 
 	
+	Employee e7 = (Employee)obj.getBean("emp4");   // pull the object. 
+	System.out.println(e7); 
 	
 	}
 
