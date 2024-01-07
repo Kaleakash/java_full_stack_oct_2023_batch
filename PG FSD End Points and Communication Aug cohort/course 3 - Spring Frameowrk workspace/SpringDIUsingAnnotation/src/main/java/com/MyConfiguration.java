@@ -1,5 +1,6 @@
 package com;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,4 +8,10 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "com")  //<context:component-scan base-package="com"></context:component-scan>
 public class MyConfiguration {
 
+	
+	@Bean(name = "pp")	// 
+	public Project getProject() {
+		Project p = new Project();
+		return p;
+	}
 }

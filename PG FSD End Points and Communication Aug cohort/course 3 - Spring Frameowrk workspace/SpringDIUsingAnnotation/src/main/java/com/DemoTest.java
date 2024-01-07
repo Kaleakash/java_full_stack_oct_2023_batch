@@ -26,6 +26,8 @@ AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(M
 		emp.getAdd().setCity("Mumbai");
 		emp.getAdd().setState("Mh");
 		System.out.println(emp);
+		Project p = (Project)ac.getBean("pp");
+		p.display();
 	}
 
 }
