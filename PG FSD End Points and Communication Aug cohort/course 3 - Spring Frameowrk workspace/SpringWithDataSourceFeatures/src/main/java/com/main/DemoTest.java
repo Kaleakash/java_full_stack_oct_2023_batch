@@ -14,11 +14,11 @@ public class DemoTest {
 	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	Employee emp1 = (Employee)ac.getBean("employee");
 	Employee emp2 = (Employee)ac.getBean("employee");
-	emp1.setId(100);
+	emp1.setId(102);
 	emp1.setName("Ravi");
 	emp1.setSalary(14000);
 	
-	emp2.setId(101);
+	emp2.setId(103);
 	emp2.setName("Ajay");
 	emp2.setSalary(16000);
 	
