@@ -9,9 +9,11 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bean.Employee;
 
+@Repository				// This is dao layer specific annotation 
 public class EmployeeDao {
 
 	@Autowired			// it will do by default byType. 
