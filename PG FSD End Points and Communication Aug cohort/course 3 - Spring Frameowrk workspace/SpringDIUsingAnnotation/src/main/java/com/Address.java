@@ -1,9 +1,11 @@
 package com;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component							//<bean class="com.Address"></bean> id name is address 
+@Scope("prototype")
 public class Address {
 @Value(value = "Bagalore")
 private String city;

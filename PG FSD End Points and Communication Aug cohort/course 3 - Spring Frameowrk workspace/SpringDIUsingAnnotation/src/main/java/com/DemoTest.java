@@ -3,6 +3,7 @@ package com;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
@@ -13,7 +14,8 @@ public class DemoTest {
 		//Resource res = new ClassPathResource("beans.xml");	// file loaded...
 		//BeanFactory obj = new XmlBeanFactory(res); 
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
+		//ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");	// load the beans.xml file 
+AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MyConfiguration.class); // load the configuration class 
 		Address add = (Address)ac.getBean("address");
 		System.out.println(add);
 		Employee emp = (Employee)ac.getBean("employee");
