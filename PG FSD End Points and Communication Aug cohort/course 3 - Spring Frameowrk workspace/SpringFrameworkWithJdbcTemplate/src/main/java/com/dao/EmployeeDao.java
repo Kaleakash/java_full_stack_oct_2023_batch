@@ -1,5 +1,8 @@
 package com.dao;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -40,6 +43,24 @@ return jdbcTemplate.update("update employee set salary = ? where id = ?",employe
 		System.out.println(e);
 		return 0;
 		}
+	}
+	
+	public List<Map<String, Object>> retrieveEmployee() {
+		try {
+			return jdbcTemplate.queryForList("select * from employee");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	public List<Map<String, Object>> retrieveEmployeeBySalary(float salary) {
+		try {
+			return jdbcTemplate.queryForList("select * from employee where salary > ?", salary);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
 	}
 }
 

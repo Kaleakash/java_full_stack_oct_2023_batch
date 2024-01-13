@@ -1,5 +1,8 @@
 package com.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,4 +38,13 @@ public class EmployeeService {
 			return "Employee record not present";
 		}
 	}
+	
+	public List<Map<String, Object>> findAllEmployeeAsMap() {
+		return employeeDao.retrieveEmployee();
+	}
+	
+	public List<Map<String, Object>> findAllEmployeeAsMapBySalary(float salary) {
+		return employeeDao.retrieveEmployeeBySalary(salary);
+	}
+	
 }
