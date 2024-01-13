@@ -16,7 +16,6 @@ public class EmployeeDao {
 		try {
 // 1st parameter query and 2nd parameter var arguments. it is use to do DML Operation 
 return jdbcTemplate.update("insert into employee values(?,?,?)", employee.getId(),employee.getName(),employee.getSalary());		
-			
 		} catch (Exception e) {
 		System.out.println(e);
 		return 0;
