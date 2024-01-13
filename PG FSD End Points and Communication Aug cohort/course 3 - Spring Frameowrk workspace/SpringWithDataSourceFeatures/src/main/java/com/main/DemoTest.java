@@ -11,6 +11,7 @@ import com.service.EmployeeService;
 public class DemoTest {
 
 	public static void main(String[] args) {
+	//new ClassPathXml	
 	ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 	Employee emp1 = (Employee)ac.getBean("employee");
 	Employee emp2 = (Employee)ac.getBean("employee");
