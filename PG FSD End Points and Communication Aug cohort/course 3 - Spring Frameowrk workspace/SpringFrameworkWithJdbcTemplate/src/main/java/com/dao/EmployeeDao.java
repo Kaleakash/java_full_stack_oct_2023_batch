@@ -1,10 +1,13 @@
 package com.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.bean.Employee;
@@ -62,9 +65,40 @@ return jdbcTemplate.update("update employee set salary = ? where id = ?",employe
 		}
 		return null;
 	}
+	
+	public List<Employee> findAllEmployeeAsList(){
+		try {
+	// 1st parameter query and 2nd parameter row mapper interface reference. 
+	return jdbcTemplate.query("select * from employee", new MyRowMapper());		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	public List<Employee> findAllEmployeeAsListAsSalary(float salary){
+		try {
+	// 1st parameter query and 2nd parameter row mapper interface reference. 
+	return jdbcTemplate.query("select * from employee where salary > ?", new MyRowMapper(),salary);		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return null;
+	}
 }
 
+// this class like while loop but it is global while loop 
 
-
+class MyRowMapper implements RowMapper<Employee>{
+	@Override
+	public Employee mapRow(ResultSet rs, int rowNum) throws SQLException {
+		// TODO Auto-generated method stub
+		Employee emp = new Employee();
+		emp.setId(rs.getInt(1));
+		emp.setName(rs.getString(2));
+		emp.setSalary(rs.getFloat(3));
+		return emp;
+	}
+}
 
 

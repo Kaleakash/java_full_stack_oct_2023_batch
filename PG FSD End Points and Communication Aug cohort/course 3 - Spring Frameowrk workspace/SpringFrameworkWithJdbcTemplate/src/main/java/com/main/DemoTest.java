@@ -24,7 +24,9 @@ public class DemoTest {
 	float salary;
 	String result;
 	do {
-		System.out.println("1:Add Employee 2 : Delete Employee 3: Update Employee 4: Retrieve Employee as Map 5: Retrieve Employee by Salar Condition");
+		System.out.println("1:Add Employee 2 : Delete Employee 3: Update Employee 4: Retrieve Employee as Map "
+				+ "5: Retrieve Employee by Salar Condition"
+				+ "6:Retrieve Employee as List 7 : Retrieve Employee as List with Salary Condition");
 		System.out.println("Enter your choice");
 		
 		choice  = sc.nextInt();
@@ -73,7 +75,24 @@ public class DemoTest {
 					System.out.println(mm);
 				}
 				break;
-        
+		case 6 :List<Employee> listOfEmployees = es.findAllEmployeeAsList();
+				Iterator<Employee> li2 = listOfEmployees.iterator();
+				while(li2.hasNext()) {
+					Employee emp = li2.next();
+					System.out.println("id is "+emp.getId()+" Name is "+emp.getName()+" Salary "+emp.getSalary());
+				}
+				break;
+		case 7 : 
+				System.out.println("Enter the salary");
+				salary = sc.nextFloat();
+			List<Employee> listOfEmployees1 = es.findAllEmployeeAsListBySalary(salary);
+			Iterator<Employee> li3 = listOfEmployees1.iterator();
+			while(li3.hasNext()) {
+			Employee emp = li3.next();
+			System.out.println("id is "+emp.getId()+" Name is "+emp.getName()+" Salary "+emp.getSalary());
+			}
+			break;
+		
 		default:System.out.println("Wrong choice");
 			break;
 		}
