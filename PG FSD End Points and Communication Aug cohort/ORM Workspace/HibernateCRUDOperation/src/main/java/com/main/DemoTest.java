@@ -34,17 +34,37 @@ public class DemoTest {
 //		tran.commit();
 //		System.out.println("Record inserted successfully...");
 	
-	// Delete Query 
-	Employee emp = session.find(Employee.class, 100); // find method 1st parameter class reference and 2nd value of pk 
-	if(emp==null) {
-		System.out.println("Record not present");
-	}else {
-		tran.begin();
-		session.delete(emp);		// delete from employee where id = 100;
-		tran.commit();
-		System.out.println("Record deleted successfully...");
-	}
+//	// Delete Query 
+//	Employee emp = session.find(Employee.class, 100); // find method 1st parameter class reference and 2nd value of pk 
+//	if(emp==null) {
+//		System.out.println("Record not present");
+//	}else {
+//		tran.begin();
+//		session.delete(emp);		// delete from employee where id = 100;
+//		tran.commit();
+//		System.out.println("Record deleted successfully...");
+//	}
 	
+//	// Update Query 
+//		Employee emp = session.find(Employee.class, 102); // find method 1st parameter class reference and 2nd value of pk 
+//		if(emp==null) {
+//			System.out.println("Record not present");
+//		}else {
+//			tran.begin();
+//				emp.setSalary(20000);
+//				session.update(emp);    	// update employee set salary = 20000 where id = 102
+//			tran.commit();
+//			System.out.println("Record updated successfully...");
+//		}
+	// find the record based or using id 
+	// Update Query 
+			// select * from employee where id = 102 
+			Employee emp = session.find(Employee.class, 102); // find method 1st parameter class reference and 2nd value of pk 
+			if(emp==null) {
+				System.out.println("Record not present");
+			}else {
+				System.out.println(emp);   // it call toString method 
+			}
 	}
 
 }
