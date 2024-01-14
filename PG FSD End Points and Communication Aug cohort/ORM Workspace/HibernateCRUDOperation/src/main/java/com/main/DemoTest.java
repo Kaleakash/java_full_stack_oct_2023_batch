@@ -74,7 +74,9 @@ public class DemoTest {
 	// Retrieve more than one record like select query using HQL 
 	
 	// In DAO layer 
-	TypedQuery qry = session.createQuery("select emp from Employee emp");
+	//TypedQuery qry = session.createQuery("select emp from Employee emp");
+	//TypedQuery qry = session.createQuery("from Employee emp");
+	TypedQuery qry = session.createQuery("from Employee");		// from entity class 
 	List<Employee> listOfEmp = qry.getResultList();
 	
 	// view layer 
