@@ -73,19 +73,36 @@ public class DemoTest {
 	
 	// Retrieve more than one record like select query using HQL 
 	
-	// In DAO layer 
-	//TypedQuery qry = session.createQuery("select emp from Employee emp");
-	//TypedQuery qry = session.createQuery("from Employee emp");
-	TypedQuery qry = session.createQuery("from Employee");		// from entity class 
-	List<Employee> listOfEmp = qry.getResultList();
+//	// In DAO layer 
+//	//TypedQuery qry = session.createQuery("select emp from Employee emp");
+//	//TypedQuery qry = session.createQuery("from Employee emp");
+//	TypedQuery qry = session.createQuery("from Employee");		// from entity class 
+//	List<Employee> listOfEmp = qry.getResultList();
+//	
+//	// view layer 
+//	System.out.println("Number of records "+listOfEmp.size());
+//	Iterator<Employee> li = listOfEmp.iterator();
+//	while(li.hasNext()) {
+//		Employee emp = li.next();
+//		System.out.println(emp);
+//	}
 	
-	// view layer 
-	System.out.println("Number of records "+listOfEmp.size());
-	Iterator<Employee> li = listOfEmp.iterator();
-	while(li.hasNext()) {
-		Employee emp = li.next();
-		System.out.println(emp);
-	}
+	// In DAO layer with where clause 
+	// Static value 
+	//TypedQuery qry = session.createQuery("select emp from Employee emp where emp.id=102"); // id condition 
+	//TypedQuery qry = session.createQuery("select emp from Employee emp where emp.salary>20000"); // salary condition
+	// dynamic value	using label query concept 
+	TypedQuery qry = session.createQuery("select emp from Employee emp where emp.salary > :sal"); // salary condition 
+	float salary = 20000;		//if we want we can take through keyboard using scanner 
+	qry.setParameter("sal", salary);
+		List<Employee> listOfEmp = qry.getResultList();
+		// view layer 
+		System.out.println("Number of records "+listOfEmp.size());
+		Iterator<Employee> li = listOfEmp.iterator();
+		while(li.hasNext()) {
+			Employee emp = li.next();
+			System.out.println(emp);
+		}
 	}
 
 }
