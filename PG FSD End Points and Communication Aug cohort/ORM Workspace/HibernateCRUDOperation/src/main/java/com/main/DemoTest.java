@@ -1,5 +1,10 @@
 package com.main;
 
+import java.util.Iterator;
+import java.util.List;
+
+import javax.persistence.TypedQuery;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -59,12 +64,29 @@ public class DemoTest {
 	// find the record based or using id 
 	// Update Query 
 			// select * from employee where id = 102 
-			Employee emp = session.find(Employee.class, 102); // find method 1st parameter class reference and 2nd value of pk 
-			if(emp==null) {
-				System.out.println("Record not present");
-			}else {
-				System.out.println(emp);   // it call toString method 
-			}
+//			Employee emp = session.find(Employee.class, 102); // find method 1st parameter class reference and 2nd value of pk 
+//			if(emp==null) {
+//				System.out.println("Record not present");
+//			}else {
+//				System.out.println(emp);   // it call toString method 
+//			}
+	
+	// Retrieve more than one record like select query using HQL 
+	
+	// In DAO layer 
+	TypedQuery qry = session.createQuery("select emp from Employee emp");
+	List<Employee> listOfEmp = qry.getResultList();
+	
+	// view layer 
+	System.out.println("Number of records "+listOfEmp.size());
+	Iterator<Employee> li = listOfEmp.iterator();
+	while(li.hasNext()) {
+		Employee emp = li.next();
+		System.out.println(emp);
+	}
 	}
 
 }
+
+
+
