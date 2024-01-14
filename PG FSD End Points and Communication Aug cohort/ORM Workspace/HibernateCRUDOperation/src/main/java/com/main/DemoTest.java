@@ -92,18 +92,47 @@ public class DemoTest {
 	//TypedQuery qry = session.createQuery("select emp from Employee emp where emp.id=102"); // id condition 
 	//TypedQuery qry = session.createQuery("select emp from Employee emp where emp.salary>20000"); // salary condition
 	// dynamic value	using label query concept 
-	TypedQuery qry = session.createQuery("select emp from Employee emp where emp.salary > :sal"); // salary condition 
-	float salary = 20000;		//if we want we can take through keyboard using scanner 
-	qry.setParameter("sal", salary);
-		List<Employee> listOfEmp = qry.getResultList();
-		// view layer 
-		System.out.println("Number of records "+listOfEmp.size());
-		Iterator<Employee> li = listOfEmp.iterator();
-		while(li.hasNext()) {
-			Employee emp = li.next();
-			System.out.println(emp);
-		}
+//	TypedQuery qry = session.createQuery("select emp from Employee emp where emp.salary > :sal"); // salary condition 
+//	float salary = 20000;		//if we want we can take through keyboard using scanner 
+//	qry.setParameter("sal", salary);
+//		List<Employee> listOfEmp = qry.getResultList();
+//		// view layer 
+//		System.out.println("Number of records "+listOfEmp.size());
+//		Iterator<Employee> li = listOfEmp.iterator();
+//		while(li.hasNext()) {
+//			Employee emp = li.next();
+//			System.out.println(emp);
+//		}
+	
+		// Retrieve only name variable value using HQL retrieving partial objects. 
+	TypedQuery qry = session.createQuery("select emp.name from Employee emp");
+	List<String> names = qry.getResultList();
+	Iterator<String> li = names.iterator();
+	while(li.hasNext()) {
+		String name = li.next();
+		System.out.println("name "+name);
 	}
+	
+	// Retrieve only salary variable value using HQL retrieving partial objects. 
+		TypedQuery qry1 = session.createQuery("select emp.salary from Employee emp");
+		List<Float> salary = qry1.getResultList();
+		Iterator<Float> li1 = salary.iterator();
+		while(li1.hasNext()) {
+			float sal = li1.next();
+			System.out.println("Salary "+sal);
+		}
+	
+		// Retrieve more than variables like name salary variable value using HQL retrieving partial objects. 
+				TypedQuery qry2 = session.createQuery("select emp.name,emp.salary from Employee emp");
+				List<Object[]> nameAndSalary = qry2.getResultList();
+				Iterator<Object[]> li2 = nameAndSalary.iterator();
+				while(li2.hasNext()) {
+					Object obj[]=li2.next();
+					System.out.println("Name is "+obj[0]+" Salary is "+obj[1]);
+				}
+	}
+	
+	
 
 }
 
