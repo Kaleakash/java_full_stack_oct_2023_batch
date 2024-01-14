@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class Employee {
 @Id							// map to PK Column 
 private int id;
-@Column(name = "name")	// otional 
+@Column(name = "name")	// optional 
 private String name;
 private float salary;
 public int getId() {
