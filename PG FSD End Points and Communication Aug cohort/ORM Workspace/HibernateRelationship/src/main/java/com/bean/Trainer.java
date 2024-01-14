@@ -16,7 +16,7 @@ private String tname;
 private String tech;
 @OneToMany(cascade = CascadeType.ALL)// whenever we store trainer object with this object associated student object also store,delete, update and retreive 
 @JoinColumn(name = "tsid")  //FK in Student table 
-private List<Student> listOfStd;	// one trainer handle many students. has a relationship 
+	private List<Student> listOfStd;	// one trainer handle many students. has a relationship 
 public int getTid() {
 	return tid;
 }
