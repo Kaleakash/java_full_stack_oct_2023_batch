@@ -1,5 +1,8 @@
 package com.main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -36,10 +39,43 @@ public class DemoTest {
 	s2.setAge(22);
 	s2.setTsid(1);				// Fk ie Trainer Id 
 	
-		tran.begin();
-			session.save(t1);
-			session.save(s1);
-			session.save(s2);
+	Student s3 = new Student();
+	s3.setSid(103);
+	s3.setSname("Meeta");
+	s3.setAge(24);							// This student not belong to any trainer here tsid is null 
+
+	// Storing Student Record with trainer record 
+	Trainer t2 = new Trainer();
+	t2.setTid(3);
+	t2.setTname("Vijay");
+	t2.setTech("Spring micro service");
+	
+	Student s4 = new Student();
+	s4.setSid(106);
+	s4.setSname("Ueeta");
+	s4.setAge(23);
+	s4.setTsid(3);
+	
+	Student s5 = new Student();
+	s5.setSid(107);
+	s5.setSname("Teeta");
+	s5.setAge(26);
+	s5.setTsid(3);
+	
+	List<Student> listOfStd = new ArrayList<>();
+	listOfStd.add(s4);
+	listOfStd.add(s5);
+	
+	t2.setListOfStd(listOfStd);   // one trainer as Ajay handle two student as Keeta and Veeta etc. 
+	
+	  tran.begin();
+//			session.save(t1);
+//			session.save(s1);
+//			session.save(s2);
+//			session.save(s3);
+	  		session.save(t2);
+	  		//session.save(s4);
+	  		//session.save(s5);
 		tran.commit();
 		System.out.println("Stored Trainer and Student details");
 	}

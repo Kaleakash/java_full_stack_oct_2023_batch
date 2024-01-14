@@ -2,6 +2,7 @@ package com.bean;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -13,7 +14,7 @@ public class Trainer {
 private int tid;
 private String tname;
 private String tech;
-@OneToMany
+@OneToMany(cascade = CascadeType.ALL)// whenever we store trainer object with this object associated student object also store,delete, update and retreive 
 @JoinColumn(name = "tsid")  //FK in Student table 
 private List<Student> listOfStd;	// one trainer handle many students. has a relationship 
 public int getTid() {
