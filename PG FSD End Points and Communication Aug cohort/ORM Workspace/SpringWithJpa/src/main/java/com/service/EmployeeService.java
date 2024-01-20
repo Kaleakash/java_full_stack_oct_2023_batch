@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +21,38 @@ public class EmployeeService {
 			return "Employee record didn't store";
 		}
 	}
+	
+	public String deleteEmployee(int id) {
+		if(employeeDao.deleteEmployee(id)>0) {
+			return "Employee record deleted successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	
+	public String updateEmployee(Employee employee) {
+		if(employeeDao.updateEmployee(employee)>0) {
+			return "Employee record updated successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	
+	public String findEmployee(int id) {
+		Employee emp = employeeDao.findEmployee(id);
+		if(emp==null) {
+			return "Employee record not present";
+		}else {
+			return emp.toString();		// display employee in string format. 
+		}
+	}
+	
+	public List<Employee> findAllEmloyee() {
+		return employeeDao.findAllEmployee();
+	}
+	
+	public List<Employee> findAllEmloyeeBySalary(float salary) {
+		return employeeDao.findAllEmployeeBySalary(salary);
+	}
+	
 }
