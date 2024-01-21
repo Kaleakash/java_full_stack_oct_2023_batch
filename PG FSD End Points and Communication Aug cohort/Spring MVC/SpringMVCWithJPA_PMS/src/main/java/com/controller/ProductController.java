@@ -1,6 +1,9 @@
 package com.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,4 +40,25 @@ public class ProductController {
 		mav.addObject("msg", result);		// equal to request.setAttribute("msg",result);
 		return mav;
 	}
+	
+	
+	@RequestMapping(value = "viewProducts",method = RequestMethod.GET)
+	public ModelAndView viewAllProducts(HttpSession hs) {		// DI for session object 
+	
+	List<Product> listOfProducts = productService.findAllProduct();
+	hs.setAttribute("listOfProducts", listOfProducts);
+	
+	ModelAndView mav = new ModelAndView();
+	
+	
+	mav.setViewName("displayProduct.jsp");
+	
+	return mav;
+	}
+	
+	
+	
+	
+	
+	
 }
