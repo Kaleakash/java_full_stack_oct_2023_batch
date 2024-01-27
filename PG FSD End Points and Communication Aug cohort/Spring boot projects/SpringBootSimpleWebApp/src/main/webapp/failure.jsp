@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Spring boot with View as JSP</h2>
-<a href="login.jsp">Login Page</a>
+<h2>Failure try once again!</h2>
+<%@include file="login.jsp" %>
 </body>
 </html>

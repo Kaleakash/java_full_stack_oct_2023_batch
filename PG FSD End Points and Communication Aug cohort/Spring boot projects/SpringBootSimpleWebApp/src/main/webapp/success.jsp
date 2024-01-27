@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Welcome to Spring boot with View as JSP</h2>
-<a href="login.jsp">Login Page</a>
+<h2>Successfully login!</h2>
 </body>
 </html>
