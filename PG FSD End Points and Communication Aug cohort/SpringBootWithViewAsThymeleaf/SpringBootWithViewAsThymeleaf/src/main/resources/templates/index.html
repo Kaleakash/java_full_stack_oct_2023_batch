@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+<h2>Welcome to Spring boot with View As Thymeleaf!</h2>
+<h2>Login Page</h2>
+<form th:object="${ll}" method="post" action="#" th:action="@{/checkLogin}">
+	<label>EmailId</label>
+	<input type="email" th:field="*{emailid}"/><br/>
+	<label>Password</label>
+	<input type="password" th:field="*{password}"/><br/>
+	<input type="submit" value="submit"/>
+	<input type="reset" value="reset"/>
+</form>
+</body>
+</html>
