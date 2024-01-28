@@ -20,6 +20,11 @@ public class ProductController {
 	ProductService productService;
 
 	
+	@RequestMapping(value = "index",method = RequestMethod.GET)
+	public String indexPage() {
+		return "index";
+	}
+	
 	@RequestMapping(value = "addProduct",method = RequestMethod.GET)
 	public String openAddProductPage(Product product,Model model) {
 		model.addAttribute("product", product);
@@ -53,4 +58,18 @@ public class ProductController {
 		return "index";
 	}
 	
+	
+	@RequestMapping(value = "updateProduct",method = RequestMethod.GET)
+	public String openUpdatetPage(Product product,Model model) {
+		model.addAttribute("product", product);
+		return "updateProduct";
+	}
+	
+	@RequestMapping(value="updateProductFromDb",method = RequestMethod.POST)
+	public String updateProduct(Product product,Model model) {
+		String result = productService.updateProduct(product);
+		model.addAttribute("product", product);
+		model.addAttribute("msg",result);
+		return "index";
+	}
 }
