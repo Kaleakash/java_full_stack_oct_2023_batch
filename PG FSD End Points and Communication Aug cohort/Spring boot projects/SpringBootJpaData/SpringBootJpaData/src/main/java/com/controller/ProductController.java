@@ -21,5 +21,12 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "addProduct";
 	}
+	@RequestMapping(value="storeProduct",method = RequestMethod.POST)
+	public String storeProduct(Product product,Model model) {
+			String result = productService.storeProduct(product);
+		model.addAttribute("product", product);
+		model.addAttribute("msg",result);
+		return "index";
+	}
 	
 }
