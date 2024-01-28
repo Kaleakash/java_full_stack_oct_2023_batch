@@ -6,8 +6,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Product Management System</h2>
-<a href="addProduct">Add Product</a> |
-<a href="findAllProducts">View All Products</a> |
+<h2>All Products Details</h2>
+<table border="1">
+	<tr>
+		<th>PId</th>
+		<th>PName</th>
+		<th>Price</th>
+		<th>Qty</th>
+	</tr>
+	<tr th:each="product: ${products}">
+		<td th:text="${product.pid}"></td>
+		<td th:text="${product.pname}"></td>
+		<td th:text="${product.price}"></td>
+		<td th:text="${product.qty}"></td>
+	</tr>
+</table>
 </body>
 </html>
