@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bean.Product;
 import com.service.ProductService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller
 public class ProductController {
 	
@@ -27,7 +29,7 @@ public class ProductController {
 	public String storeProduct(Product product,Model model) {
 			String result = productService.storeProduct(product);
 		model.addAttribute("product", product);
-		model.addAttribute("msg",result);
+	model.addAttribute("msg",result);
 		return "index";
 	}
 	@RequestMapping(value = "findAllProducts",method = RequestMethod.GET)
@@ -37,7 +39,18 @@ public class ProductController {
 		return "viewProducts";
 	}
 	
+
+	@RequestMapping(value = "deleteProduct",method = RequestMethod.GET)
+	public String deleteProductPage() {
+		return "deleteProduct";
+	}
 	
-	
+	@RequestMapping(value="deleteProduct",method = RequestMethod.POST)
+	public String deleteProduct(HttpServletRequest req,Model model) {
+		int pid = Integer.parseInt(req.getParameter("pid"));
+		String result = productService.deleteProduct(pid);
+		model.addAttribute("msg",result);
+		return "index";
+	}
 	
 }

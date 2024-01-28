@@ -33,4 +33,28 @@ public class ProductService {
 		return productRepository.findAll();			// retrieve list of product without sql or jpql or hql 
 	}
 	
+	
+	public String deleteProduct(int pid) {
+		Optional<Product> op = productRepository.findById(pid); 	
+		if(op.isPresent()) {
+			productRepository.deleteById(pid);
+			return "Product deleted successfully";
+		}else {
+			return "Product not present";
+		}
+	}
+	
+	public String updateProduct(Product product) {		// pid,price, qty 
+		Optional<Product> op = productRepository.findById(product.getPid()); 	
+		if(op.isPresent()) {
+			Product p	= op.get();
+			p.setPrice(product.getPrice());
+			p.setQty(product.getQty());
+			
+			productRepository.saveAndFlush(p);
+			return "Product updated successfully";
+		}else {
+			return "Product not present";
+		}
+	}
 }

@@ -6,11 +6,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<strong th:text="*{msg}"></strong> <!--  requestScope.getAttribute("msg") -->
 
-<h2>Product Management System</h2>
-<a href="addProduct">Add Product</a> |
-<a href="findAllProducts">View All Products</a> |
-<a href="deleteProduct">Delete Products</a> |
+
+<h2>Delete Product</h2>
+<form  action="deleteProduct" method="post">
+	<label>PId</label>
+	<input type="number" name="pid"/><br/>
+	<input type="submit" value="Delete product"/>
+	<input type="reset" value="reset"/>
+</form>
+<br/>
+<a href="index.html">Back</a>
 </body>
 </html>
