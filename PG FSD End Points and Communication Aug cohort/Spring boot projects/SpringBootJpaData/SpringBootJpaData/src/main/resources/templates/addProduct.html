@@ -8,14 +8,27 @@
 <body>
 
 
-<h2>Add Product</h2>
+<h2>Add Product with Thymeleaf Form</h2>
 <form  action="#" th:action="@{/storeProduct}" method="post" th:object="${product}">
 	<label>PName</label>
 	<input type="text" th:field="*{pname}"/><br/>
 	<label>Price</label>
 	<input type="number" th:field="*{price}"/><br/>
 	<label>Qty</label>
-	<input type="text" th:field="*{qty}"/><br/>
+	<input type="number" th:field="*{qty}"/><br/>
+	<input type="submit" value="Store Product"/>
+	<input type="reset" value="reset"/>
+</form>
+
+<hr/>
+<h2>Add Product with basic Form</h2>
+<form action="storeProductIntoDb" method="post">
+		<label>PName</label>
+	<input type="text" name="pname"/><br/>
+	<label>Price</label>
+	<input type="number" name="price"/><br/>
+	<label>Qty</label>
+	<input type="number" name="qty"/><br/>
 	<input type="submit" value="Store Product"/>
 	<input type="reset" value="reset"/>
 </form>

@@ -12,8 +12,9 @@ import com.bean.Product;
 import com.service.ProductService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-@Controller
+@Controller				// RestFull Controller 
 public class ProductController {
 	
 	@Autowired
@@ -30,17 +31,39 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "addProduct";
 	}
+	
 	@RequestMapping(value="storeProduct",method = RequestMethod.POST)
 	public String storeProduct(Product product,Model model) {
-			String result = productService.storeProduct(product);
+	
+		String result = productService.storeProduct(product);
 		model.addAttribute("product", product);
+		model.addAttribute("msg",result);
+		return "index";
+	}
+	
+	@RequestMapping(value="storeProductIntoDb",method = RequestMethod.POST)
+	public String addProductIntoDb(HttpServletRequest req, HttpServletResponse res, Product product, Model model) {
+	
+	String pname = req.getParameter("pname");
+	int price = Integer.parseInt(req.getParameter("price"));
+	int qty = Integer.parseInt(req.getParameter("qty"));
+	
+	product.setPname(pname);
+	product.setPrice(price);
+	product.setQty(qty);
+	
+		String result = productService.storeProduct(product);
+	model.addAttribute("product", product);
 	model.addAttribute("msg",result);
 		return "index";
 	}
+	
+	
 	@RequestMapping(value = "findAllProducts",method = RequestMethod.GET)
 	public String findAllProductInfo(Model model) {
 		List<Product> listOfProducts = productService.findAllProduct();
 		model.addAttribute("products", listOfProducts);
+		model.addAttribute("p", listOfProducts.get(0));
 		return "viewProducts";
 	}
 	

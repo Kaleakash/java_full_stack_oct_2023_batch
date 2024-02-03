@@ -6,6 +6,23 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h3>One Product Info</h3>
+PId <strong th:text="*{p.pid}"></strong><br/>
+PName <strong th:text="*{p.pname}"></strong><br/>
+Price <strong th:text="*{p.price}"></strong><br/>
+Qty <strong th:text="*{p.qty}"></strong>
+<br/>
+<form  action="#" th:action="@{/updateProduct}" method="post" th:object="${p}">
+	<label>PName</label>
+	<input type="text" th:field="*{pname}"/><br/>
+	<label>Price</label>
+	<input type="number" th:field="*{price}"/><br/>
+	<label>Qty</label>
+	<input type="number" th:field="*{qty}"/><br/>
+	<input type="submit" value="Store Product"/>
+	<input type="reset" value="reset"/>
+</form>
+
 <h2>All Products Details</h2>
 <table border="1">
 	<tr>
