@@ -57,5 +57,23 @@ public class AccountController {
 	public String deleteAccount(@PathVariable("accno") int accno) {
 		return accountService.deleteAccount(accno);
 	}		
+	
+	// http://localhost:9090/withdraw
+	// method patch 
+	// data as json {"accno":2,"amount":100}
+	// data as json {"accno":10,"amount":100}
+	
+	@RequestMapping(value = "withdraw",method = RequestMethod.PATCH,consumes = MediaType.APPLICATION_JSON_VALUE)
+	public String withdrawn(@RequestBody Account account) {
+		return accountService.withdrawn(account.getAccno(), account.getAmount());
+	}
+	
+	// http://localhost:9090/deposite/2/100
+	// http://localhost:9090/deposite/10/100
+	// method put 
+	@RequestMapping(value = "deposite/{accno}/{amount}",method = RequestMethod.PUT)
+	public String deposite(@PathVariable("accno") int accno, @PathVariable("amount") float amount) {
+		return accountService.deposit(accno,amount);
+	}
 }
 
