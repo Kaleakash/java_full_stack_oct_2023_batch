@@ -49,5 +49,13 @@ public class AccountController {
 			return accountService.accountCreate(account);
 	}
 	
+	// http://localhost:9090/deleteAccount/1
+	// http://localhost:9090/deleteAccount/100		
+	// method delete 
+			
+	@RequestMapping(value = "deleteAccount/{accno}",method = RequestMethod.DELETE)
+	public String deleteAccount(@PathVariable("accno") int accno) {
+		return accountService.deleteAccount(accno);
+	}		
 }
 

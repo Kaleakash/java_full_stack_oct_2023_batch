@@ -71,4 +71,15 @@ public class AccountService {
 		}
 	}
 	
+	public String deleteAccount(int accno) {
+		Optional<Account> op = accountRepository.findById(accno);
+		if(op.isPresent()) {
+			Account acc = op.get();
+			accountRepository.delete(acc);
+			return "Account information deleted successfully";
+		}else {
+			return "Account didn't exits";
+		}
+	}
+	
 }
