@@ -45,7 +45,7 @@ public class AccountService {
 			Account acc = op.get();
 			
 			if(acc.getAmount()>amount) {
-			acc.setAmount(acc.getAccno()-amount);		// 1000 -200
+			acc.setAmount(acc.getAmount()-amount);		// 1000 -200
 			accountRepository.saveAndFlush(acc);
 			return "Amount withdrawn successfully";
 			}else {
