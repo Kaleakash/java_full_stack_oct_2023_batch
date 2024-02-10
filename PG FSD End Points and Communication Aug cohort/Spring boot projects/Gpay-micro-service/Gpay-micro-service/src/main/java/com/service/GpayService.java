@@ -38,8 +38,10 @@ public class GpayService {
 		if(op.isPresent()) {
 			Gpay gpay = op.get();
 			String emailid = gpay.getEmailid();
-
-	String result = restTemplate.getForObject("http://localhost:8383/account/findBalanceByEmailId/"+emailid,String.class);
+			// gpay micro service communicating to account micro service using physical ip address. 
+	//String result = restTemplate.getForObject("http://localhost:8383/account/findBalanceByEmailId/"+emailid,String.class);
+	// with @LoadBalanced with @Bean annotation we can communicate one service with another service by name 
+	String result = restTemplate.getForObject("http://ACCOUNTSERVICE/account/findBalanceByEmailId/"+emailid,String.class);
 			return result;
 		}else {
 			
