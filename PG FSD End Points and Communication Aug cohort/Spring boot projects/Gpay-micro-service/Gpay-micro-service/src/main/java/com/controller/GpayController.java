@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +33,13 @@ public class GpayController {
 	@GetMapping(value = "findAll",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Gpay> findAll() {
 		return gpayService.findAllGpay();
+	}
+	
+	//http://localhost:8484/gpay/findBalance/100
+	//http://localhost:8484/gpay/findBalance/1000
+	
+	@GetMapping(value = "findBalance/{gpayid}")
+	public String findBalance(@PathVariable("gpayid") int gpayid) {
+		return gpayService.findBalance(gpayid);
 	}
 }
