@@ -20,7 +20,7 @@ public class AccountController {
 	AccountService accountService;
 	
 	// http://localhost:8383/account/createAccount 
-	
+	// json data {"accno":1,"name":"ravi","emailid":"ravi@gmail.com","amount":1200}
 	@PostMapping(value = "createAccount",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public String createAccunt(@RequestBody Account account) {
 		return accountService.createAccount(account);
@@ -33,9 +33,10 @@ public class AccountController {
 	public String findBalanceByAccno(@PathVariable("accno") int accno) {
 		return accountService.findBalanceByAccno(accno);
 	}
-	// 	// http://localhost:8383/account/findBalanceByEmailId/raj@gmail.com 
-	@GetMapping(value = "findBalanceByEmailId/{accno}")
+	// 	http://localhost:8383/account/findBalanceByEmailId/raj@gmail.com 
+	@GetMapping(value = "findBalanceByEmailId/{emailid}")
 	public String findBalanceByEmailId(@PathVariable("emailid") String emailid) {
+		System.out.println(emailid);
 		return accountService.findBalanceByEmailId(emailid);
 	}
 }

@@ -11,5 +11,5 @@ import com.entity.Account;
 public interface AccountRepository extends JpaRepository<Account, Integer>{
 
 	@Query("select acc.amount from Account acc where acc.emailid = :emailid")
-	public float findAccountByEmaild(@Param("emailid") String emailid);
+	public float findAccountByEmaild(@Param("emailid") String email);
 }
