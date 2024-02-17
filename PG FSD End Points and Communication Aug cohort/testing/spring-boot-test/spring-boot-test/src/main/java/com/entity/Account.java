@@ -31,5 +31,15 @@ public void setAmount(float amount) {
 public String toString() {
 	return "Account [accno=" + accno + ", name=" + name + ", amount=" + amount + "]";
 }
+public Account() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public Account(int accno, String name, float amount) {
+	super();
+	this.accno = accno;
+	this.name = name;
+	this.amount = amount;
+}
 
 }
