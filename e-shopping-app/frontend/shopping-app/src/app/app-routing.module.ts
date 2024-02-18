@@ -8,8 +8,8 @@ import { CustomerdashboardComponent } from './customerdashboard/customerdashboar
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {"path":"signup",component:SignupComponent},
-  {path:"admin",component:AdmindashboardComponent},
-  {path:"customer",component:CustomerdashboardComponent},
+  {path:"adminhome",component:AdmindashboardComponent},
+  {path:"customerhome",component:CustomerdashboardComponent},
   {path:"",redirectTo:"login",pathMatch:"full"}
 ];
 

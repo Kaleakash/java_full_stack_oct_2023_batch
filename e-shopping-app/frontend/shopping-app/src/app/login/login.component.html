@@ -5,13 +5,13 @@
         </div>
     </div>
 
-    <form class="form-group">
+    <form class="form-group" [formGroup]="loginRef" (ngSubmit)="signIn()">
     <div class="row">
             <div class="col-3">
                 <label>EmailId</label>
             </div>
             <div class="col-3">
-               <input type="email" class="form-control"/>
+               <input type="email" class="form-control" formControlName="emailid"/>
             </div>
     </div>
 
@@ -20,7 +20,7 @@
             <label>Password</label>
         </div>
         <div class="col-3">
-           <input type="password" class="form-control"/>
+           <input type="password" class="form-control" formControlName="password"/>
         </div>
     </div>
 
@@ -29,8 +29,8 @@
             <label>TypeOfUser</label>
         </div>
         <div class="col-3">
-           <input type="radio" name="typeofuser" value="admin"/>Admin
-           <input type="radio" name="typeofuser" value="customer"/>Customer
+           <input type="radio" formControlName="typeofuser" value="admin"/>Admin
+           <input type="radio" formControlName="typeofuser" value="customer"/>Customer
         </div>
     </div>
 
@@ -42,7 +42,7 @@
             <input type="submit" value="Reset" class="btn btn-info"/>
         </div>
     </div>
-
+    <span style="color:red">{{msg}}</span>
     </form>
     <div class="row">
         <div class="col-6">
