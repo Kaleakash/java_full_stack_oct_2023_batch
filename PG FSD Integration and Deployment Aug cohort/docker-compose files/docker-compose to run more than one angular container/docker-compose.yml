@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  akash-service:
+   image: akashkale/my-angular-test-app:v1
+   ports:
+     - 81:80
+  manimozhi-service:
+   image: manimozhi11/myangularapp:v1
+   ports:
+     - 82:80
+  varsh-service:
+    image: varshur/angulardocker:v1
+    ports:
+      - 83:80
+  swathi-service:
+    image: swathitummuri/my-angular-test-app:v1
+    ports:
+      - 84:80
