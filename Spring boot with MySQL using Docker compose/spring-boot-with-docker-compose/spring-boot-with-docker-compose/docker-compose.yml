@@ -2,6 +2,7 @@ version: '3.8'
 services:
   mysql-db:
     image: mysql:8
+    container_name: mysql_db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: productdb
@@ -9,7 +10,8 @@ services:
       - 3307:3306
     restart: always
   springboot-container:
-    build: .
+    #build: .
+    image: akashkale/spring-boot:v123
     container_name: springboot-container 
     depends_on:
       - mysql-db
